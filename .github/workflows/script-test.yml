@@ -1,0 +1,23 @@
+name: Execute Script Shell
+
+on: [push]
+
+jobs:
+  Execute-Script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Repository
+        uses: actions/checkout@v4
+
+      - name: Set Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Execute Script
+        run: |
+          chmod +x ./scripts/script.sh
+          bash ./scripts/script.sh
