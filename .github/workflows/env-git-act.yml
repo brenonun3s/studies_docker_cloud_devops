@@ -1,0 +1,14 @@
+name: Exemplo ENV GitHub Actions
+
+on: [push]
+
+env:
+  APP_NOME: meu-app
+  APP_VERSAO: 1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar Variavel
+        run: echo "Name of App is $APP_NOME and version is $APP_VERSAO"
